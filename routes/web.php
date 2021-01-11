@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,24 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('admin')->middleware(['verified', 'admin'])->name('admin.')->group(function () {
+    Route::get('/dashboard', function () {
+        // Matches The "/admin/users" URL
+        return view('dashboard');
+
+    })->name("dashboard");
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('verified')->name('dashboard');
+Route::prefix('merchant')->middleware(['verified', 'merchant'])->name('merchant.')->group(function () {
+    Route::get('/dashboard', function () {
+        // Matches The "/admin/users" URL
+        return view('merchant.dashboard');
+
+    })->name("dashboard");
+});
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
+

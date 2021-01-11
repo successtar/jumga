@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -74,4 +74,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * Custom Redirect
+     *
+     * @return string Redirect path
+     */
+    public function redirectTo(){
+
+        return RouteServiceProvider::custom_redirect();
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';
 
     /**
      * The controller namespace for the application.
@@ -59,5 +60,26 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
+    }
+
+    /**
+     * Custom Redirect by user role
+     *
+     * @return string redirect path
+     */
+    public static function custom_redirect(){
+
+        switch(Auth::user()->role){
+            case 'admin':
+                $redirect = '/admin/dashboard';
+                break;
+            case 'merchant':
+                $redirect = '/merchant/dashboard';
+                break;
+            default:
+                $redirect = RouteServiceProvider::HOME;
+        }
+
+        return $redirect;
     }
 }

@@ -34,7 +34,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="/img/logo.png" alt="Logo">
                             </a>
                         </div>
@@ -72,8 +72,11 @@
                                 <a href="#" class="nav-link h5 dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->first_name }}</a>
                                 <div class="dropdown-menu">
 
-                                    <a href="{{ route('dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
-
+                                    @if (Auth::user()->role == "admin")
+                                        <a href="{{ route('admin.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                    @elseif (Auth::user()->role == "merchant")
+                                        <a href="{{ route('merchant.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                    @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
