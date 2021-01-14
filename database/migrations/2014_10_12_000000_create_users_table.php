@@ -16,6 +16,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->default(DB::raw('(UUID())'));
+            $table->string('shop_name')->unique();
+            $table->string('shop_description');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone');
@@ -27,7 +29,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('slug');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

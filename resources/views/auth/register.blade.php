@@ -10,10 +10,28 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="row">
+                            <div class="col-md-12">
+                                <label for="shop-name">Shop Name</label>
+                                <input id="shop-name" class="form-control @error('shop_name') is-invalid @enderror" name="shop_name" minlength="4" value="{{ old('shop_name') }}" type="text" placeholder="Shop Name" required autofocus>
+                                @error('shop_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12">
+                                <label for="shop-description">Shop Description</label>
+                                <input id="shop-description" class="form-control @error('shop_description') is-invalid @enderror" name="shop_description" minlength="20" value="{{ old('shop_description') }}" type="text" placeholder="Shop Description" required>
+                                @error('shop_description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             <div class="col-md-6">
                                 <label for="first-name">First Name</label>
-                                <input id="first-name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" type="text" placeholder="First Name" required autofocus>
-                                @error('name')
+                                <input id="first-name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" type="text" placeholder="First Name" required>
+                                @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
