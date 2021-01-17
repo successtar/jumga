@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,10 @@ Auth::routes(['verify' => true]);
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/shop/{slug}', [ShopController::class, 'index'])->name('shop');
+Route::post('/shop/test', [ShopController::class, 'update'])->name('test');
+Route::get('/shop/{slug}/cart', [ShopController::class, 'cart'])->name('cart');
+Route::post('/shop/{slug}/checkout', [ShopController::class, 'checkout'])->name('checkout');
 
 Route::prefix('admin')->middleware(['verified', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', function () {

@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', 'merchant')->get();
-        return view('home', ['users' => $users]);
+        $shops = User::where('role', 'merchant')->where('status', 'active')->get();
+        return view('home', ['shops' => $shops]);
     }
 }

@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'));
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
             $table->string('shop_name')->unique();
             $table->string('shop_description');
             $table->string('first_name');
@@ -25,7 +25,8 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['admin', 'merchant', "dispatcher"])->default('merchant');
             $table->enum('currency', ['USD', 'NGN', "EUR"])->default('USD');
             $table->enum('status', ['ACTIVE', 'PENDING', "DELETED"])->default('PENDING');
-            $table->double('balance', 8, 2)->default(0);
+            $table->double('account_balance', 8, 2)->default(0);
+            $table->double('dispatch_balance', 8, 2)->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

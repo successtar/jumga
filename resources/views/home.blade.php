@@ -7,13 +7,13 @@
         <div class="row mb-5">
             <div class="col-md-12">
                 <div class="header-slider normal-slider">
-                    @foreach ($users as $user)
+                    @foreach ($shops as $shop)
                         <div class="header-slider-item">
                             <img src="img/slide-{{$loop->index}}.jpg" class="img-fluid"  alt="Slider Image" />
                             <div class="header-slider-caption">
-                                <p>Successtar Shop</p>
-                                <p class="small"><small> A place for all your needs</small> </p>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Go To Shop</a>
+                                <p>{{$shop->shop_name}}</p>
+                                <p class="small"><small> {{$shop->shop_description}}</small> </p>
+                                <a class="btn" href="/shop/{{$shop->slug}}"><i class="fa fa-shopping-cart"></i>Go To Shop</a>
                             </div>
                         </div>
                     @endforeach

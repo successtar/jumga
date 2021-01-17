@@ -18,10 +18,11 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
 
         <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/all.min.css" rel="stylesheet">
         <link href="/lib/slick/slick.css" rel="stylesheet">
         <link href="/lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="/css/toastr.css" rel="stylesheet"/>
 
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
@@ -46,16 +47,14 @@
                         </div>
                     </div>
                     <div class="col-md-3 text-right">
-                        <div class="user d-inline-block">
-                            <a href="wishlist.html" class="btn wishlist">
-                                <i class="fa fa-heart"></i>
-                                <span>(0)</span>
-                            </a>
-                            <a href="cart.html" class="btn cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>(0)</span>
-                            </a>
-                        </div>
+                        @if (@$shop)
+                            <div class="user d-inline-block">
+                                <a href="/shop/{{$shop->slug}}/cart" class="btn cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span id="cart-count"></span>
+                                </a>
+                            </div>
+                        @endif
 
 
                         <!-- Authentication Links -->
@@ -108,9 +107,9 @@
                         <div class="footer-widget">
                             <h2>Get in Touch</h2>
                             <div class="contact-info">
-                                <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
-                                <p><i class="fa fa-envelope"></i>email@example.com</p>
-                                <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                                <p><i class="fa fa-map-marker"></i>123 Jumga, Lagos, Nigeria</p>
+                                <p><i class="fa fa-envelope"></i>hello@jumga.com</p>
+                                <p><i class="fa fa-phone"></i>+2347061855688</p>
                             </div>
                         </div>
                     </div>
@@ -157,15 +156,15 @@
                     <div class="col-md-6">
                         <div class="payment-method">
                             <h2>We Accept:</h2>
-                            <img src="img/payment-method.png" alt="Payment Method" />
+                            <img src="/img/payment-method.png" alt="Payment Method" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="payment-security">
                             <h2>Secured By:</h2>
-                            <img src="img/godaddy.svg" alt="Payment Security" />
-                            <img src="img/norton.svg" alt="Payment Security" />
-                            <img src="img/ssl.svg" alt="Payment Security" />
+                            <img src="/img/godaddy.svg" alt="Payment Security" />
+                            <img src="/img/norton.svg" alt="Payment Security" />
+                            <img src="/img/ssl.svg" alt="Payment Security" />
                         </div>
                     </div>
                 </div>
@@ -193,10 +192,11 @@
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/lib/jquery-3.4.1.min.js"></script>
+        <script src="/lib/bootstrap.bundle.min.js"></script>
         <script src="/lib/easing/easing.min.js"></script>
         <script src="/lib/slick/slick.min.js"></script>
+        <script src="/lib/toastr.js"></script>
 
         <!-- Template Javascript -->
         <script src="/js/main.js"></script>

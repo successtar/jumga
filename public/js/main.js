@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -17,8 +17,8 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -31,8 +31,8 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-    
-    
+
+
     // Header slider
     $('.header-slider').slick({
         autoplay: true,
@@ -41,8 +41,8 @@
         slidesToShow: 1,
         slidesToScroll: 1
     });
-    
-    
+
+
     // Product Slider 4 Column
     $('.product-slider-4').slick({
         autoplay: true,
@@ -77,8 +77,8 @@
             },
         ]
     });
-    
-    
+
+
     // Product Slider 3 Column
     $('.product-slider-3').slick({
         autoplay: true,
@@ -107,8 +107,8 @@
             },
         ]
     });
-    
-    
+
+
     // Product Detail Slider
     $('.product-slider-single').slick({
         infinite: true,
@@ -127,8 +127,8 @@
         focusOnSelect: true,
         asNavFor: '.product-slider-single'
     });
-    
-    
+
+
     // Brand Slider
     $('.brand-slider').slick({
         speed: 5000,
@@ -170,8 +170,8 @@
             }
         ]
     });
-    
-    
+
+
     // Review slider
     $('.review-slider').slick({
         autoplay: true,
@@ -188,8 +188,8 @@
             }
         ]
     });
-    
-    
+
+
     // Widget slider
     $('.sidebar-slider').slick({
         autoplay: true,
@@ -198,10 +198,10 @@
         slidesToShow: 1,
         slidesToScroll: 1
     });
-    
-    
-    // Quantity
-    $('.qty button').on('click', function () {
+
+
+    // Cart Quantity Change
+    $('#cart-items').on('click', '.qty button', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
         if ($button.hasClass('btn-plus')) {
@@ -213,10 +213,21 @@
                 newVal = 0;
             }
         }
-        $button.parent().find('input').val(newVal);
+
+        cart = cart.map(item => item.id === $(this).data("id") ? {...item, unit: newVal} : item);
+        localStorage.setItem(shop, JSON.stringify(cart));
+        generate_cart_data();
     });
-    
-    
+
+    // Remove Item From Cart
+    $("#cart-items").on("click", ".remove-item", function(){
+        cart = cart.filter(val => val.id !== $(this).data("id"));
+        localStorage.setItem(shop, JSON.stringify(cart));
+        $("#cart-count").text(cart.length);
+        generate_cart_data();
+    });
+
+
     // Shipping address show hide
     $('.checkout #shipto').change(function () {
         if($(this).is(':checked')) {
@@ -225,8 +236,8 @@
             $('.checkout .shipping-address').slideUp();
         }
     });
-    
-    
+
+
     // Payment methods show hide
     $('.checkout .payment-method .custom-control-input').change(function () {
         if ($(this).prop('checked')) {
@@ -235,5 +246,111 @@
             $('#' + checkbox_id + '-show').slideDown();
         }
     });
+
+    // Load Cart
+    var cart = localStorage.getItem(shop) ? JSON.parse(localStorage.getItem(shop)) : [];
+    $("#cart-count").text(cart.length);
+
+    // Add to Cart
+    $(".add-to-cart").on("click", function(){
+        var check = cart.filter(val => val.id === $(this).data("id"));
+        if (check.length === 0){
+            var item = {id: $(this).data("id"), name: $(this).data("name"), price: $(this).data("price"), image: $(this).data("image"), unit: 1};
+            cart.push(item);
+            $("#cart-count").text(cart.length);
+            localStorage.setItem(shop, JSON.stringify(cart))
+        }
+
+        $(this).prop("disabled", true)
+    });
+
+    if ($("#cart-items")[0]){
+        generate_cart_data();
+    }
+
+
+    // Cart Information display
+    function generate_cart_data(){
+        var total = 0;
+        var items = cart.reduce((acc, val, i) => {
+
+            total += (val.price * val.unit);
+            return acc + `<tr>
+                            <td>
+                                <div class="img">
+                                    <a href="${val.image}" ><img src="${val.image}" alt="${val.name}"></a>
+                                    <p>${val.name}</p>
+                                </div>
+                            </td>
+                            <td>$${val.price}</td>
+                            <td>
+                                <input type="hidden" name="items[${i}][id]" value="${val.id}">
+                                <input type="hidden" name="items[${i}][name]" value="${val.name}">
+                                <div class="qty">
+                                    <button type="button" data-id="${val.id}" class="btn-minus"><i class="fa fa-minus"></i></button>
+                                    <input type="text" name="items[${i}][unit]" value="${val.unit}">
+                                    <button type="button"  data-id="${val.id}" class="btn-plus"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td>$${val.price * val.unit}</td>
+                            <td><button type="button" data-id="${val.id}" class="remove-item"><i class="fa fa-trash"></i></button></td>
+                        </tr>`
+        }, '');
+
+        if (items === ''){
+            items = '<tr> <td colspan="5" class="py-4"> Your Cart is Empty </td> </tr>';
+            $("#checkout-btn").prop("disabled", true);
+        }
+        else {
+            $("#checkout-btn").prop("disabled", false);
+        }
+
+        var dispatch = total > 0 ? 50 : 0;
+        $("#item-total").text("$" + total);
+        $("#item-dispatch").text("$" + dispatch);
+        $("#item-grand-total").text("$" + (dispatch + total));
+        $("#cart-items").html(items);
+    }
+
+    // Check out Summary
+    if ($("#checkout-summary")[0]){
+
+        var total = cart.reduce((acc, val) => acc + (val.price * val.unit), 0 );
+        var dispatch = total > 0 ? 50 : 0;
+
+        $("#item-total").text("$" + total);
+        $("#item-dispatch").text("$" + dispatch);
+        $("#item-grand-total").text("$" + (dispatch + total));
+    }
+
+    // Checkout Submission
+    $("#place-order").on("submit", function(e){
+        e.preventDefault();
+
+        if ($(this)[0].checkValidity()){
+            var fdata = Object.fromEntries((new FormData($(this)[0])).entries());
+            fdata.items = cart;
+            $("#place-order :input").prop("disabled", false);
+            $.post(`/api/shop/${shop.substr(2)}/order`, fdata, function(data){
+                console.log("response", data)
+                if (data.status && data.status === "success"){
+
+                }
+                else if (data.message){
+                    toastr.error(data.message);
+                }
+                else{
+                    toastr.error("Error Processing your request");
+                }
+
+            }).fail(function(e){
+                $("#place-order :input").prop("disabled", false);
+                var message = e.responseJSON.message ? e.responseJSON.message  : "Unable to process your request";
+                toastr.error(message);
+            });
+        }
+    });
+
+
 })(jQuery);
 
