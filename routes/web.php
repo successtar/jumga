@@ -39,7 +39,7 @@ Route::post('/transaction/webhook', [TransactionController::class, 'webhook'])->
 Route::prefix('admin')->middleware(['verified', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
         // Matches The "/admin/users" URL
-        return view('dashboard');
+        return view('admin.dashboard');
 
     })->name("dashboard");
 });

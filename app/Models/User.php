@@ -47,7 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public $incrementing = false;
+    // public $incrementing = false;
 
     public function product()
     {
