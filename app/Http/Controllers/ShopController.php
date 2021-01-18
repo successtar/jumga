@@ -132,6 +132,7 @@ class ShopController extends Controller
 
         $data = $req->all();
         $tranx = new Transaction;
+        $tranx->id = Str::uuid();
         $tranx->amount = $this::total_cost($data['items']);
         $tranx->gateway_ref =  Str::uuid();
         $tranx->user_id = $shop->id;

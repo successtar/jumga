@@ -15,7 +15,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+            $table->uuid('id')->primary();
             $table->string('email');
             $table->enum('currency', ['USD', 'NGN', "EUR"])->default('USD');
             $table->double('amount', 8, 2);

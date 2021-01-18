@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class TransactionController extends Controller
 {
@@ -61,6 +62,7 @@ class TransactionController extends Controller
 
                     // Create Order
                     $order = new Order;
+                    $order->id = Str::uuid();
                     $order->first_name = $order_data['first_name'];
                     $order->last_name = $order_data['last_name'];
                     $order->email = $order_data['email'];
