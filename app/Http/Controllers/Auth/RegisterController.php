@@ -51,10 +51,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'shop_name' => ['required', 'string', 'min:4', 'max:255'],
+            'shop_name' => ['required', 'string', 'min:4', 'max:255', 'unique:users'],
             'shop_description' => ['required', 'string', 'min:20', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -75,6 +79,11 @@ class RegisterController extends Controller
             'shop_description' => $data['shop_description'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'country' => $data['country'],
+            'zip' => $data['zip'],
             'phone' => $data['phone'],
             'email' => $data['email'],
             'slug' => Str::slug($data['shop_name']),

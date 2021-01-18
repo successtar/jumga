@@ -21,6 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone');
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->string('zip')->nullable();
             $table->string('email')->unique();
             $table->enum('role', ['admin', 'merchant', "dispatcher"])->default('merchant');
             $table->enum('currency', ['USD', 'NGN', "EUR"])->default('USD');

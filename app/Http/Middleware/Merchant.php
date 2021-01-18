@@ -18,9 +18,14 @@ class Merchant
      */
     public function handle(Request $request, Closure $next)
     {
+        // dd(Auth::user());
 
         if (Auth::user()->role != 'merchant') {
             return redirect(RouteServiceProvider::HOME);
+        }
+
+        if (Auth::user()->status != 'ACTIVE') {
+            return redirect(route('activate'));
         }
 
         return $next($request);

@@ -53,6 +53,9 @@ Route::prefix('merchant')->middleware(['verified', 'merchant'])->name('merchant.
 
     })->name("dashboard");
 });
+Route::get('/merchant/activate', function(){
+    return view('shop.activate');
+})->name('activate');
 
 
 

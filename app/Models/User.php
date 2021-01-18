@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, SoftDeletes;
+    
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'slug',
+        'id',
+        'address',
+        'city',
+        'state',
+        'country'
     ];
 
     /**
@@ -47,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public $incrementing = false;
+    // public $incrementing = false;
 
     public function product()
     {

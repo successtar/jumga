@@ -82,7 +82,7 @@ class TransactionController extends Controller
                     $order->items = json_encode($order_data['items']);
                     $order->save();
                 }
-                elseif ($tranx->type == 'FEE'){
+                elseif ($tranx->type == 'SHOP_FEE'){
                     // Confirm User Shop Fee
                     User::where('role', 'admin')->increment('account_balance', $tranx->amount);
                     User::where('id', $tranx->user_id)->update(['status' => 'ACTIVE']);

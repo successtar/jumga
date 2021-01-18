@@ -362,6 +362,32 @@
         }
     });
 
+    // Activate Shop
+    $("#activate-shop").on("click", function(){
+        $.post(`/api/shop/${shop.substr(2)}/activate`, function(res){
+            if (res.status && res.status === "success"){
+                initiateFlutterwaveCharge(res.data, function(data){
+                    // Callback on success
+                    console.log("success", data);
+                    setTimeout(function(){
+                        location.href = `/merchant/dashboard`;
+                    }, 5000);
+                });
+                return;
+            }
+            else if (res.message){
+                toastr.error(res.message);
+            }
+            else{
+                toastr.error("Error Processing your request");
+            }
+
+        }).fail(function(e){
+            var message = e.responseJSON.message ? e.responseJSON.message  : "Unable to process your request";
+            toastr.error(message);
+        });
+    });
+
     /* Flutterwave Charge pop */
     function initiateFlutterwaveCharge(data, callback){
 

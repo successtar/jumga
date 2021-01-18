@@ -152,6 +152,43 @@ class ShopController extends Controller
         return response()->json(['status' => 'success', 'message' => 'Transaction created', 'data' => $data]);
     }
 
+    /**
+     * Activate Shop
+     */
+    public function activate($slug){
+
+        $shop = $this::get_shop($slug);
+
+        // Prevent Duplicate Payment
+        if ($shop->status != 'PENDING'){
+            return response()->json(['status' => 'error', 'message' => 'Account Already Activated']);
+        }
+
+        $tranx = new Transaction;
+        $tranx->id = Str::uuid();
+        $tranx->amount = env('J_ACTIVATION');
+        $tranx->gateway_ref =  Str::uuid();
+        $tranx->user_id = $shop->id;
+        $tranx->category = 'INCOMING';
+        $tranx->type = 'SHOP_FEE';
+        $tranx->email = $shop->email;
+        $tranx->save();
+
+        $data['gatewayRef'] = $tranx->gateway_ref;
+        $data['amount'] = $tranx->amount;
+        $data['currency'] = 'USD';
+        $data['first_name'] = $shop->last_name;
+        $data['last_name'] = $shop->first_name;
+        $data['phone'] = $shop->phone;
+        $data['email'] = $shop->email;
+        $data['country'] = $shop->country;
+        $data['description'] = $shop->shop_description;
+        $data['publicKey'] = env('FW_PUBKEY');
+
+        return response()->json(['status' => 'success', 'message' => 'Transaction created', 'data' => $data]);
+
+    }
+
     public function index($slug)
     {
 
