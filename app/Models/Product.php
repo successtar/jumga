@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    public $incrementing = false;
 
     public function user(){
         return $this->belongsTo('App\Models\User');

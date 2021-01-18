@@ -15,9 +15,9 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->uuid('product_id')->default(DB::raw('(UUID())'))->primary();
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+            $table->string('name');
+            $table->string('description');
             $table->char('user_id', 36);
             $table->string('image_path');
             $table->enum('currency', ['USD', 'NGN', "EUR"])->default('USD');

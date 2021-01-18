@@ -19,7 +19,7 @@
 
         <!-- CSS Libraries -->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="/lib/slick/slick.css" rel="stylesheet">
         <link href="/lib/slick/slick-theme.css" rel="stylesheet">
         <link href="/css/toastr.css" rel="stylesheet"/>

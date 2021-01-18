@@ -36,11 +36,11 @@
                                 <div class="col-md-6">
                                     <label>Country</label>
                                     <select name="country" required class="custom-select">
-                                        <option></option>
-                                        <option >Nigeria</option>
-                                        <option>Ghana</option>
-                                        <option>Kenya</option>
-                                        <option>United Kingdom</option>
+                                        <option value="">Country</option>
+                                        <option value="NG" >Nigeria</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="KE">Kenya</option>
+                                        <option value="UK">United Kingdom</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -129,5 +129,5 @@
 </form>
 <!-- Checkout End -->
 
-
+<script src="https://checkout.flutterwave.com/v3.js"></script>
 @endsection

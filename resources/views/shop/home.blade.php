@@ -37,7 +37,7 @@
                         <div class="col-md-4">
                             <div class="product-item">
                                 <div class="product-title">
-                                    <a href="/product/{{$product->product_id}}">{{$product->name}}</a>
+                                    <a href="/product/{{$product->id}}">{{$product->name}}</a>
                                 </div>
                                 <div class="product-image">
                                     <a href="product-detail.html">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="product-price">
                                     <h3><span>$</span>{{$product->price}}</h3>
-                                    <button class="btn add-to-cart" data-id="{{$product->product_id}}" data-image="{{$product->image_path}}" data-name="{{$product->name}}" data-price="{{$product->price}}" ><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                                    <button class="btn add-to-cart" data-id="{{$product->id}}" data-image="{{$product->image_path}}" data-name="{{$product->name}}" data-price="{{$product->price}}" ><i class="fa fa-shopping-cart"></i>Add to Cart</button>
                                 </div>
                             </div>
                         </div>

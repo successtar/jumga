@@ -214,7 +214,7 @@
             }
         }
 
-        cart = cart.map(item => item.id === $(this).data("id") ? {...item, unit: newVal} : item);
+        cart = cart.map(item => item.id === $(this).data("id") ? {...item, unit: newVal} : item).filter(val => val.unit > 0);
         localStorage.setItem(shop, JSON.stringify(cart));
         generate_cart_data();
     });
@@ -248,8 +248,10 @@
     });
 
     // Load Cart
-    var cart = localStorage.getItem(shop) ? JSON.parse(localStorage.getItem(shop)) : [];
-    $("#cart-count").text(cart.length);
+    if (typeof(shop) != 'undefined'){
+        var cart = localStorage.getItem(shop) ? JSON.parse(localStorage.getItem(shop)) : [];
+        $("#cart-count").text(cart.length);
+    }
 
     // Add to Cart
     $(".add-to-cart").on("click", function(){
@@ -285,6 +287,7 @@
                             <td>$${val.price}</td>
                             <td>
                                 <input type="hidden" name="items[${i}][id]" value="${val.id}">
+                                <input type="hidden" name="items[${i}][price]" value="${val.price}">
                                 <input type="hidden" name="items[${i}][name]" value="${val.name}">
                                 <div class="qty">
                                     <button type="button" data-id="${val.id}" class="btn-minus"><i class="fa fa-minus"></i></button>
@@ -305,7 +308,7 @@
             $("#checkout-btn").prop("disabled", false);
         }
 
-        var dispatch = total > 0 ? 50 : 0;
+        var dispatch = total > 0 ? 20 : 0;
         $("#item-total").text("$" + total);
         $("#item-dispatch").text("$" + dispatch);
         $("#item-grand-total").text("$" + (dispatch + total));
@@ -316,7 +319,7 @@
     if ($("#checkout-summary")[0]){
 
         var total = cart.reduce((acc, val) => acc + (val.price * val.unit), 0 );
-        var dispatch = total > 0 ? 50 : 0;
+        var dispatch = total > 0 ? 20 : 0;
 
         $("#item-total").text("$" + total);
         $("#item-dispatch").text("$" + dispatch);
@@ -330,18 +333,26 @@
         if ($(this)[0].checkValidity()){
             var fdata = Object.fromEntries((new FormData($(this)[0])).entries());
             fdata.items = cart;
-            $("#place-order :input").prop("disabled", false);
-            $.post(`/api/shop/${shop.substr(2)}/order`, fdata, function(data){
-                console.log("response", data)
-                if (data.status && data.status === "success"){
-
+            $("#place-order :input").prop("disabled", true);
+            $.post(`/api/shop/${shop.substr(2)}/order`, fdata, function(res){
+                if (res.status && res.status === "success"){
+                    initiateFlutterwaveCharge(res.data, function(data){
+                        // Callback on success
+                        console.log("success", data);
+                        localStorage.removeItem(shop);
+                        setTimeout(function(){
+                            location.href = `/shop/${shop.substr(2)}`;
+                        }, 5000);
+                    });
+                    return;
                 }
-                else if (data.message){
-                    toastr.error(data.message);
+                else if (res.message){
+                    toastr.error(res.message);
                 }
                 else{
                     toastr.error("Error Processing your request");
                 }
+                $("#place-order :input").prop("disabled", false);
 
             }).fail(function(e){
                 $("#place-order :input").prop("disabled", false);
@@ -350,6 +361,32 @@
             });
         }
     });
+
+    /* Flutterwave Charge pop */
+    function initiateFlutterwaveCharge(data, callback){
+
+        FlutterwaveCheckout({
+            public_key: data.publicKey,
+            tx_ref: data.gatewayRef,
+            amount: data.amount,
+            currency: data.currency,
+            country: data.country,
+            customer: {
+              email: data.email,
+              phone_number: data.phone,
+              name: data.first_name + ' ' + data.last_name,
+            },
+            callback: callback,
+            onclose: function() {
+                $("#place-order :input").prop("disabled", false);
+            },
+            customizations: {
+              title: data.shop,
+              description: data.description
+            },
+          });
+    }
+
 
 
 })(jQuery);

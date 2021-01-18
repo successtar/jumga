@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/shop/{slug}/order', [ShopController::class, 'order'])->name('order');
+Route::post('/shop/{slug}/validate', [ShopController::class, 'validate'])->name('validate');
