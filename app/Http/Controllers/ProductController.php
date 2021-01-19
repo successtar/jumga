@@ -12,7 +12,7 @@ class ProductController extends Controller
     //
 
     /**
-     * Delete Merchant Products
+     * Delete Merchant Products by merchant or Admin
      */
     public function delete(Request $req){
 
@@ -20,14 +20,19 @@ class ProductController extends Controller
             'id' => 'required|size:36',
             ]);
 
-        Product::where('id', $req->input('id'))->delete();
-        return redirect()->route('merchant.product')->with('message', 'Product Deleted Successfully');
+        $prod = Product::where('id', $req->input('id'));
+        if (Auth::user()->role != 'admin'){
+            $prod->where('user_id', Auth::user()->id);
+        }
+        $prod->delete();
+
+        return redirect()->route(Auth::user()->role.'.product')->with('message', 'Product Deleted Successfully');
     }
 
     /**
      * Create Merchant Products
      */
-    public function create(Request $req){
+    public function merchant_create(Request $req){
 
         $req->validate([
             'name' => 'required|min:4|max:255',
@@ -57,7 +62,7 @@ class ProductController extends Controller
     /**
      * Get Merchant Products
      */
-    public function product(){
+    public function merchant_product(){
 
         $shop = Auth::user();
         $products = Product::where('user_id', $shop->id)
@@ -65,6 +70,18 @@ class ProductController extends Controller
                             ->paginate(8);
 
         return view('merchant.product', ['shop' => $shop, 'products' => $products]);
+
+    }
+
+    /**
+     * Admin Viewing all products Products
+     */
+    public function admin_product(){
+
+        $products = Product::orderByDesc('created_at')
+                            ->paginate(8);
+
+        return view('admin.product', ['products' => $products]);
 
     }
 }

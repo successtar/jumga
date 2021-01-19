@@ -14,7 +14,7 @@
                     <div class="card border-0 my-5">
 
                         <div class="card-body p-5">
-                            <form method="POST" enctype="multipart/form-data" action="{{ route('merchant.new-product') }}">
+                            <form method="POST" enctype="multipart/form-data" action="/merchant/product/new">
                                 @csrf
 
                                 <div class="form-group row">

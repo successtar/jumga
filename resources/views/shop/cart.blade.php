@@ -9,7 +9,7 @@
 @endif
 
 <!-- Cart Start -->
-<form method="POST" action="{{ route('checkout', ['slug' => $shop->slug]) }}">
+<form method="POST" action="/shop/{{$shop->slug}}/checkout">
     @csrf
     <div class="cart-page">
         <div class="container-fluid">

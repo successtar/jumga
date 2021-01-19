@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -33,36 +34,30 @@ Route::get('/shop/{slug}/cart', [ShopController::class, 'cart'])->name('cart');
 Route::post('/shop/{slug}/checkout', [ShopController::class, 'checkout'])->name('checkout');
 
 
-// TRANSACTION ROUTE
+// TRANSACTION ROUTE (Webhook)
 Route::post('/transaction/webhook', [TransactionController::class, 'webhook'])->withoutMiddleware(VerifyCsrfToken::class)->name('webhook');
 
 
 // ADMIN Route
 Route::prefix('admin')->middleware(['verified', 'admin'])->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        // Matches The "/admin/*" URL
-        return view('admin.dashboard');
-
-    })->name("dashboard");
+    Route::get('/dashboard', [DashboardController::class, 'admin_dashboard'])->name("dashboard");
+    Route::get('/product', [ProductController::class, 'admin_product'])->name('product');
+    Route::get('/order', [OrderController::class, 'admin_order'])->name('order');
+    Route::post('/product/delete', [ProductController::class, 'delete'])->name('delete-product');
 });
 
 
 // MERCHANT ROUTE
 Route::prefix('merchant')->middleware(['verified', 'merchant'])->name('merchant.')->group(function () {
-    Route::get('/dashboard', function () {
-        // Matches The "/merchant/*" URL
-        return view('merchant.dashboard');
-    })->name("dashboard");
-
-    Route::get('/product', [ProductController::class, 'product'])->name('product');
-    Route::get('/order', [OrderController::class, 'order'])->name('order');
-
+    Route::get('/dashboard', [DashboardController::class, 'merchant_dashboard'])->name("dashboard");
+    Route::get('/product', [ProductController::class, 'merchant_product'])->name('product');
+    Route::get('/order', [OrderController::class, 'merchant_order'])->name('order');
 
     Route::get('/product/new', function () {
         return view('merchant.new_product', ['shop' => Auth::user()]);
     })->name('new-product-page');
 
-    Route::post('/product/new', [ProductController::class, 'create'])->name('new-product');
+    Route::post('/product/new', [ProductController::class, 'merchant_create'])->name('new-product');
     Route::post('/product/delete', [ProductController::class, 'delete'])->name('delete-product');
 });
 Route::get('/merchant/activate', function(){
