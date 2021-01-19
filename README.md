@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/successtar/jumga/blob/master/public/img/logo.png?raw=true" width="400"></a></p>
 
 <p>
-Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds.
+Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds.
 </p>
 <p>
-    The application can be tested online here <a href="https://jumga-shop.herokuapp.com" target="_blank"> JUMGA </a>
+    The application can be tested online here <a href="https://jumga-shop.herokuapp.com"> JUMGA </a>
     <br/>
     <b>Admin</b> => Email: admin@jumga.com Password: admin12345!
     <br/>
@@ -24,7 +24,7 @@ Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code 
         <li>Merchant activities which include adding and deleting of products, insight to orders and dashaboard</li>
         <li>Customers seeing different shops to buy from and make purchase with ease</li>
         <li>Intuitive UI/UX</li>
-    <ul>
+    </ul>
 </p>
     
 <p>
@@ -34,6 +34,7 @@ Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code 
         <li>Framework: Laravel (^8.12)</li>
         <li>Library: JQuery (v3.4.1), Bootstrap ^4.4, toastr </li>
         <li>Database: SQL (MYSQL, PgSQL)</li>
+        <li>Flutterwave Account</li>
     </ul>
 </p>
 
@@ -43,8 +44,16 @@ Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code 
     <ul>
         <li>composer, php ^7.3, MySQL/PgSQL are required to set the application up locally</li>
         <li>Clone this repository</li>
-        <li>RUN ```php artisan install``` to install dependencies </li>
-    </ul>
+    <li>RUN <b>composer install</b> to install dependencies </li>
+    <li>Create a file with the name <b>.env</b> in the root directory</li>
+    <li>Copy all the content in the <b>.env.example</b> file to the file you just created</b>
+    <li>Edit the .env file by filling the required fields which include database credentials (DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD), Flutterwave test credentials (FW_PUBKEY, FW_SECKEY, FW_ENCKEY), and Mail Credentials (MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD, MAIL_ENCRYPTION) </li>
+    <li>RUN <b>php artisan migrate --seed</b> to set up your db </li>
+    <li>RUN <b>php artisan key:generate</b> to generate the app key </li>
+    <li>RUN <b>php artisan serve</b> to start the app </li>
+    <li>You should be able to access the app via http://127.0.0.1:8000 </li>
+    <li>If you are having issue setting up the app, you can check the <a href="https://laravel.com/docs">laravel documentation</a> or raise an issue </li> 
+   </ul>
 </p>
 
 <p>
@@ -65,66 +74,3 @@ Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code 
         <li>Database: PgSQL</li>
     </ul>
 </p>
-
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
