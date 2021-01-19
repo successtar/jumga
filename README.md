@@ -74,3 +74,7 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
         <li>Database: PgSQL</li>
     </ul>
 </p>
+
+## License
+
+MIT © [Hammed Olalekan Osanyinpeju](https://successtar.github.io)
