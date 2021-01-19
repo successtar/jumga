@@ -51,7 +51,7 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
     <li>RUN <b>php artisan migrate --seed</b> to set up your db </li>
     <li>RUN <b>php artisan key:generate</b> to generate the app key </li>
     <li>RUN <b>php artisan serve</b> to start the app </li>
-    <li>You should be able to access the app via http://127.0.0.1:8000 </li>
+    <li>You should be able to access the app via http://127.0.0.1:8000. The test credentials above for admin and merchants and be used to login</li>
     <li>If you are having issue setting up the app, you can check the <a href="https://laravel.com/docs">laravel documentation</a> or raise an issue </li> 
    </ul>
 </p>
@@ -72,6 +72,14 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
         <li>Platform: Heroku</li>
         <li>Deployment: Heroku Pipeline (Github)</li>
         <li>Database: PgSQL</li>
+    </ul>
+</p>
+
+<p>
+    <h3> TODO </h3>
+    <ul>
+        <li>Merchant Updating perasonal details and bank accounts</li>
+        <li>Merchant Withdrawing to bank account</li>
     </ul>
 </p>
 
