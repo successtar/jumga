@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <p class="h5">
                         {{ __('One last step, you are required to pay a token of $20 to get your shop up running.') }}
-                        {{ __('Also note that Jumga get 2% for every sale while dispatch for delivering items to your customer cost $20.') }}
+                        {{ __('Also note that Jumga get 8% for every sale while dispatch for delivering items to your customer cost $20.') }}
                     </p>
                     <br/>
                     <p class="text-center">
