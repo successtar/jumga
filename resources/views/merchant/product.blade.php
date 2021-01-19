@@ -57,8 +57,9 @@
                             <form id="logout-form" action="{{ route('merchant.delete-product') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$product->id}}" />
-                                <button type="submit" class="btn"><i class="fa fa-trash"></i></button></td>
+                                <button type="submit" class="btn"><i class="fa fa-trash"></i></button>
                             </form>
+                        </td>
                     </tr>
 
                 @endforeach

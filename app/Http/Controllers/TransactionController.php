@@ -56,8 +56,8 @@ class TransactionController extends Controller
                     // Update product remaining
                     foreach($order_data['items'] as $item){
                         $prod = Product::where('id', $item['id']);
-                        $prod->increment('sold');
-                        $prod->decrement('available');
+                        $prod->increment('sold', $item['unit']);
+                        $prod->decrement('available', $item['unit']);
                     }
 
                     // Create Order

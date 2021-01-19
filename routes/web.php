@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TransactionController;
@@ -54,7 +55,7 @@ Route::prefix('merchant')->middleware(['verified', 'merchant'])->name('merchant.
     })->name("dashboard");
 
     Route::get('/product', [ProductController::class, 'product'])->name('product');
-    Route::get('/order', [ProductController::class, 'order'])->name('order');
+    Route::get('/order', [OrderController::class, 'order'])->name('order');
 
 
     Route::get('/product/new', function () {

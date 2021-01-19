@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             <div class="d-flex flex-column product-item align-items-center">
                                 <div class="product-title w-100">
-                                    <a href="/product/{{$product->id}}">{{$product->name}}</a>
+                                    <a href="#">{{$product->name}}</a>
                                 </div>
                                 <div class="product-image">
                                     <a href="product-detail.html">

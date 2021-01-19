@@ -200,21 +200,7 @@ class ShopController extends Controller
 
 
 
-
         return view('shop.home', ['shop' => $shop, 'products' => $products]);
-    }
-
-    public function update(Request $req){
-
-        $req->validate([
-            'file' => 'required|mimes:jpg|max:2048'
-            ]);
-
-        // dd($req);
-
-        $path = $req->file('product_image')->store('product_image', ['disk' => 'public']);
-
-        return $path;
 
     }
 }
