@@ -1,3 +1,59 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/successtar/jumga/blob/master/public/img/logo.png?raw=true" width="400"></a></p>
+
+<p>
+This is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds
+</p>
+
+<p>
+<h3> Features </h3>
+    <ul>
+        <li>Merchant and Admin Authentication (Login, Register, and Email Activation)</li>
+        <li>Merchant Onboarding and setting up of online shop after paying a token </li>
+        <li>Fund management between Jumga, Merchant, and dispatch</li>
+        <li>Admin overview of all merchants, transactions, orders, products and other administrative activities.</li>
+        <li>Merchant activities which include adding and deleting of products, insight to orders and dashaboard</li>
+        <li>Customers seeing different shops to buy from and make purchase with ease</li>
+        <li>Intuitive UI/UX</li>
+    <ul>
+</p>
+<p>
+    <h3> Tools </h3>
+    <ul>
+        <li>Language: PHP (^7.3|^8.0), JavaScript</li>
+        <li>Framework: Laravel (^8.12)</li>
+        <li>Library: JQuery (v3.4.1), Bootstrap ^4.4, toastr </li>
+        <li>Database: SQL (MYSQL, PgSQL)</li>
+    </ul>
+</p>
+
+<p>
+    <h3> Local Test Environment </h3>
+    <ul>
+        <li>OS: Ubuntu 20.04</li>
+        <li>PHP : PHP 7.3</li>
+        <li>Server: Nginx 1.18 </li>
+        <li>Database: MySQL 8.0.22</li>
+    </ul>
+</p>
+
+<p>
+    <h3> Staging Test Environment </h3>
+    <ul>
+        <li>Platform: Heroku</li>
+        <li>Deployment: Heroku Pipeline (Github)</li>
+        <li>Database: PgSQL</li>
+    </ul>
+</p>
+
+<p>
+    <h3> SETUP </h3>
+    <ul>
+        <li>composer, php ^7.3, MySQL/PgSQL are required to set the application up locally</li>
+        <li>Clone this repository</li>
+        <li>RUN ```php artisan install``` to install dependencies </li>
+    </ul>
+</p>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
