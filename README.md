@@ -1,11 +1,21 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/successtar/jumga/blob/master/public/img/logo.png?raw=true" width="400"></a></p>
 
 <p>
-This is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds
+Jumga is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds.
+</p>
+<p>
+    The application can be tested online here <a href="https://jumga-shop.herokuapp.com" target="_blank"> JUMGA </a>
+    <br/>
+    <b>Admin</b> => Email: admin@jumga.com Password: admin12345!
+    <br/>
+    <b>Merchant</b> => Email: test@test.com Password: test12345!
+    <br/>
+    <b>Merchant</b> => Email: osanyinpejuhammed35@gmail.com Password: successtar1#
+    
 </p>
 
 <p>
-<h3> Features </h3>
+    <h3> Features </h3>
     <ul>
         <li>Merchant and Admin Authentication (Login, Register, and Email Activation)</li>
         <li>Merchant Onboarding and setting up of online shop after paying a token </li>
@@ -16,6 +26,7 @@ This is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code c
         <li>Intuitive UI/UX</li>
     <ul>
 </p>
+    
 <p>
     <h3> Tools </h3>
     <ul>
@@ -23,6 +34,16 @@ This is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code c
         <li>Framework: Laravel (^8.12)</li>
         <li>Library: JQuery (v3.4.1), Bootstrap ^4.4, toastr </li>
         <li>Database: SQL (MYSQL, PgSQL)</li>
+    </ul>
+</p>
+
+
+<p>
+    <h3> SETUP </h3>
+    <ul>
+        <li>composer, php ^7.3, MySQL/PgSQL are required to set the application up locally</li>
+        <li>Clone this repository</li>
+        <li>RUN ```php artisan install``` to install dependencies </li>
     </ul>
 </p>
 
@@ -42,15 +63,6 @@ This is <a href="https://flutterwave.com" target="_blank">Flutterwave</a> code c
         <li>Platform: Heroku</li>
         <li>Deployment: Heroku Pipeline (Github)</li>
         <li>Database: PgSQL</li>
-    </ul>
-</p>
-
-<p>
-    <h3> SETUP </h3>
-    <ul>
-        <li>composer, php ^7.3, MySQL/PgSQL are required to set the application up locally</li>
-        <li>Clone this repository</li>
-        <li>RUN ```php artisan install``` to install dependencies </li>
     </ul>
 </p>
 
