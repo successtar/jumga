@@ -76,6 +76,7 @@
                                     @elseif (Auth::user()->role == "merchant")
                                         <a href="{{ route('merchant.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
                                         <a href="{{ route('merchant.product') }}" class="dropdown-item">{{ __('Product') }}</a>
+                                        <a href="{{ route('merchant.order') }}" class="dropdown-item">{{ __('Order') }}</a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -21,11 +21,12 @@ class CreateProductsTable extends Migration
             $table->char('user_id', 36);
             $table->string('image_path');
             $table->enum('currency', ['USD', 'NGN', "EUR"])->default('USD');
-            $table->double('price', 8, 2)->default(0);
+            $table->double('price', 8, 2);
             $table->integer('unit');
             $table->integer('available');
-            $table->integer('sold');
+            $table->integer('sold')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

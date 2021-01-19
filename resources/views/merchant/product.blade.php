@@ -2,9 +2,23 @@
 
 @section('shop_content')
 
+
+@if(Session::has('message'))
+    <div class="px-5">
+        <p class="alert alert-success mx-4">{{ Session::get('message') }}</p>
+    </div>
+@endif
+
+
+@error('id')
+    <div class="px-5">
+        <p class="alert alert-danger mx-4">{{ $message }}</p>
+    </div>
+@enderror
+
 <div class="m-5" >
     <div class="table-responsive px-5 pt-4 bg-white cart-page">
-        <h3 class="mb-4" >Products <a href="{{route('new-product-page')}}" class="btn btn-primary float-right"> New Product</a></h3>
+        <h3 class="mb-4" >Products <a href="{{route('merchant.new-product-page')}}" class="btn btn-primary float-right"> New Product</a></h3>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -15,6 +29,7 @@
                     <th>Sold</th>
                     <th>Updated At</th>
                     <th>Created At</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,9 +52,20 @@
                         <td>{{$product->sold}}</td>
                         <td>{{$product->updated_at}}</td>
                         <td>{{$product->created_at}}</td>
+                        <td>
+
+                            <form id="logout-form" action="{{ route('merchant.delete-product') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$product->id}}" />
+                                <button type="submit" class="btn"><i class="fa fa-trash"></i></button></td>
+                            </form>
                     </tr>
 
                 @endforeach
+
+                @if ($products->total() == 0)
+                    <tr> <td colspan="8"><h4>No Record Found</h3></td></tr>
+                @endif
             </tbody>
         </table>
     </div>

@@ -54,17 +54,18 @@ Route::prefix('merchant')->middleware(['verified', 'merchant'])->name('merchant.
     })->name("dashboard");
 
     Route::get('/product', [ProductController::class, 'product'])->name('product');
+    Route::get('/order', [ProductController::class, 'order'])->name('order');
 
 
     Route::get('/product/new', function () {
-        // Matches The "/merchant/*" URL
         return view('merchant.new_product', ['shop' => Auth::user()]);
     })->name('new-product-page');
 
     Route::post('/product/new', [ProductController::class, 'create'])->name('new-product');
+    Route::post('/product/delete', [ProductController::class, 'delete'])->name('delete-product');
 });
 Route::get('/merchant/activate', function(){
-    return view('shop.activate');
+    return view('merchant.activate');
 })->name('activate');
 
 

@@ -32,8 +32,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 3,
                 'available' => 2,
                 'sold' => 1,
-                'created_at' => '2021-01-05 11:27:21',
-                'updated_at' => '2021-01-18 06:08:53',
+                'created_at' => '2020-12-05 11:27:21',
+                'updated_at' => '2020-12-18 06:08:53',
             ),
             1 =>
             array (
@@ -47,8 +47,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 7,
                 'available' => 4,
                 'sold' => 3,
-                'created_at' => '2021-01-19 11:27:21',
-                'updated_at' => '2021-01-14 11:27:21',
+                'created_at' => '2020-12-19 11:27:21',
+                'updated_at' => '2020-12-14 11:27:21',
             ),
             2 =>
             array (
@@ -62,8 +62,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 7,
                 'available' => 6,
                 'sold' => 1,
-                'created_at' => '2021-01-26 11:27:21',
-                'updated_at' => '2021-01-18 05:08:04',
+                'created_at' => '2020-12-26 11:27:21',
+                'updated_at' => '2020-12-18 05:08:04',
             ),
             3 =>
             array (
@@ -77,8 +77,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 6,
                 'available' => 6,
                 'sold' => 0,
-                'created_at' => '2021-01-21 11:27:21',
-                'updated_at' => '2021-01-20 11:27:21',
+                'created_at' => '2020-12-21 11:27:21',
+                'updated_at' => '2020-12-20 11:27:21',
             ),
             4 =>
             array (
@@ -92,8 +92,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 5,
                 'available' => 5,
                 'sold' => 0,
-                'created_at' => '2021-01-26 11:27:21',
-                'updated_at' => '2021-01-26 11:27:21',
+                'created_at' => '2020-12-26 11:27:21',
+                'updated_at' => '2020-12-26 11:27:21',
             ),
             5 =>
             array (
@@ -107,8 +107,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 40,
                 'available' => 39,
                 'sold' => 1,
-                'created_at' => '2021-01-20 11:27:21',
-                'updated_at' => '2021-01-18 05:49:11',
+                'created_at' => '2020-12-20 11:27:21',
+                'updated_at' => '2020-12-18 05:49:11',
             ),
             6 =>
             array (
@@ -122,8 +122,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 7,
                 'available' => 5,
                 'sold' => 2,
-                'created_at' => '2021-01-27 11:27:21',
-                'updated_at' => '2021-01-18 05:11:13',
+                'created_at' => '2020-12-27 11:27:21',
+                'updated_at' => '2020-12-18 05:11:13',
             ),
             7 =>
             array (
@@ -137,8 +137,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 56,
                 'available' => 50,
                 'sold' => 6,
-                'created_at' => '2021-01-28 11:27:21',
-                'updated_at' => '2021-01-18 06:08:53',
+                'created_at' => '2020-12-28 11:27:21',
+                'updated_at' => '2020-12-18 06:08:53',
             ),
             8 =>
             array (
@@ -152,8 +152,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 5,
                 'available' => 5,
                 'sold' => 0,
-                'created_at' => '2021-01-18 11:27:21',
-                'updated_at' => '2021-01-18 11:27:21',
+                'created_at' => '2020-12-18 11:27:21',
+                'updated_at' => '2020-12-18 11:27:21',
             ),
             9 =>
             array (
@@ -167,8 +167,8 @@ class ProductsTableSeeder extends Seeder
                 'unit' => 3,
                 'available' => 3,
                 'sold' => 0,
-                'created_at' => '2021-01-21 11:27:21',
-                'updated_at' => '2021-01-13 11:27:21',
+                'created_at' => '2020-12-21 11:27:21',
+                'updated_at' => '2020-12-13 11:27:21',
             ),
         ));
 
