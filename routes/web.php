@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
@@ -41,8 +42,10 @@ Route::post('/transaction/webhook', [TransactionController::class, 'webhook'])->
 // ADMIN Route
 Route::prefix('admin')->middleware(['verified', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'admin_dashboard'])->name("dashboard");
+    Route::get('/merchant', [MerchantController::class, 'merchant'])->name('merchant');
     Route::get('/product', [ProductController::class, 'admin_product'])->name('product');
     Route::get('/order', [OrderController::class, 'admin_order'])->name('order');
+    Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
     Route::post('/product/delete', [ProductController::class, 'delete'])->name('delete-product');
 });
 

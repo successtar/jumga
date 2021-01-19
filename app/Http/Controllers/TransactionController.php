@@ -92,4 +92,15 @@ class TransactionController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Received Successfully']);
     }
+
+    /**
+     * See All Transactions
+     */
+
+     public function transaction(){
+
+        $transactions = Transaction::paginate(8);
+
+        return view('admin.transaction', ['transactions' => $transactions]);
+     }
 }

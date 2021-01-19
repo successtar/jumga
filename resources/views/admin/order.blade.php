@@ -4,7 +4,7 @@
 
 <div class="m-5" >
     <div class="table-responsive px-5 pt-4 bg-white">
-        <h3 class="mb-4" >All Orders</h3>
+        <h3 class="mb-4" >Orders</h3>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>

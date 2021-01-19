@@ -5,7 +5,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Jumga') }}</title>
 
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="eCommerce HTML Template Free Download" name="keywords">
@@ -13,6 +13,10 @@
 
         <!-- Favicon -->
         <link href="/img/favicon.ico" rel="icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/img/site.webmanifest">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
@@ -73,8 +77,10 @@
 
                                     @if (Auth::user()->role == "admin")
                                         <a href="{{ route('admin.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                        <a href="{{ route('admin.merchant') }}" class="dropdown-item">{{ __('Merchant') }}</a>
                                         <a href="{{ route('admin.product') }}" class="dropdown-item">{{ __('Product') }}</a>
                                         <a href="{{ route('admin.order') }}" class="dropdown-item">{{ __('Order') }}</a>
+                                        <a href="{{ route('admin.transaction') }}" class="dropdown-item">{{ __('Transaction') }}</a>
                                     @elseif (Auth::user()->role == "merchant")
                                         <a href="{{ route('merchant.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
                                         <a href="{{ route('merchant.product') }}" class="dropdown-item">{{ __('Product') }}</a>
