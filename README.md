@@ -80,6 +80,7 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
     <ul>
         <li>Merchant Updating perasonal details and bank accounts</li>
         <li>Merchant Withdrawing to bank account</li>
+        <li>Improved User Experience</li>
     </ul>
 </p>
 
