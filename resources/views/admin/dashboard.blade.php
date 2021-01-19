@@ -10,7 +10,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Income Balance
                 </h5>
-                <a href="{{ route('admin.dashboard') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.dashboard', [], false) }}" class="display-1 font-weight-bold">
                     ${{number_format($data['account_balance'], 2)}}
                 </a>
             </div>
@@ -18,7 +18,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Merchants
                 </h5>
-                <a href="{{ route('admin.merchant') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.merchant', [], false) }}" class="display-1 font-weight-bold">
                     {{number_format($data['merchant'])}}
                 </a>
             </div>
@@ -26,7 +26,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Products
                 </h5>
-                <a href="{{ route('admin.product') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.product', [], false) }}" class="display-1 font-weight-bold">
                     {{number_format($data['product'])}}
                 </a>
             </div>
@@ -36,7 +36,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Transactions
                 </h5>
-                <a href="{{ route('admin.transaction') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.transaction', [], false) }}" class="display-1 font-weight-bold">
                     {{number_format($data['transaction'])}}
                 </a>
             </div>
@@ -44,7 +44,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Orders
                 </h5>
-                <a href="{{ route('admin.order') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.order', [], false) }}" class="display-1 font-weight-bold">
                     {{number_format($data['order'])}}
                 </a>
             </div>
@@ -52,7 +52,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Shop Fee
                 </h5>
-                <a href="{{ route('admin.transaction') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('admin.transaction', [], false) }}" class="display-1 font-weight-bold">
                     {{number_format($data['fee'])}}
                 </a>
             </div>

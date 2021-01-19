@@ -66,8 +66,8 @@
                             <div class="nav-item dropdown d-inline-block px-3">
                                 <a href="#" class="nav-link h5 dropdown-toggle" data-toggle="dropdown">User Account</a>
                                 <div class="dropdown-menu">
-                                    <a href="{{ route('login') }}" class="dropdown-item">{{ __('Login') }}</a>
-                                    <a href="{{ route('register') }}" class="dropdown-item">{{ __('Register') }}</a>
+                                    <a href="{{ route('login', [], false) }}" class="dropdown-item">{{ __('Login') }}</a>
+                                    <a href="{{ route('register', [], false) }}" class="dropdown-item">{{ __('Register') }}</a>
                                 </div>
                             </div>
                         @else
@@ -76,15 +76,15 @@
                                 <div class="dropdown-menu">
 
                                     @if (Auth::user()->role == "admin")
-                                        <a href="{{ route('admin.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
-                                        <a href="{{ route('admin.merchant') }}" class="dropdown-item">{{ __('Merchant') }}</a>
-                                        <a href="{{ route('admin.product') }}" class="dropdown-item">{{ __('Product') }}</a>
-                                        <a href="{{ route('admin.order') }}" class="dropdown-item">{{ __('Order') }}</a>
-                                        <a href="{{ route('admin.transaction') }}" class="dropdown-item">{{ __('Transaction') }}</a>
+                                        <a href="{{ route('admin.dashboard', [], false) }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                        <a href="{{ route('admin.merchant', [], false) }}" class="dropdown-item">{{ __('Merchant') }}</a>
+                                        <a href="{{ route('admin.product', [], false) }}" class="dropdown-item">{{ __('Product') }}</a>
+                                        <a href="{{ route('admin.order', [], false) }}" class="dropdown-item">{{ __('Order') }}</a>
+                                        <a href="{{ route('admin.transaction', [], false) }}" class="dropdown-item">{{ __('Transaction') }}</a>
                                     @elseif (Auth::user()->role == "merchant")
-                                        <a href="{{ route('merchant.dashboard') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
-                                        <a href="{{ route('merchant.product') }}" class="dropdown-item">{{ __('Product') }}</a>
-                                        <a href="{{ route('merchant.order') }}" class="dropdown-item">{{ __('Order') }}</a>
+                                        <a href="{{ route('merchant.dashboard', [], false) }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                        <a href="{{ route('merchant.product', [], false) }}" class="dropdown-item">{{ __('Product') }}</a>
+                                        <a href="{{ route('merchant.order', [], false) }}" class="dropdown-item">{{ __('Order') }}</a>
                                     @endif
 
                                     <a class="dropdown-item" href="/logout"

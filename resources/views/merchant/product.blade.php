@@ -18,7 +18,7 @@
 
 <div class="m-5" >
     <div class="table-responsive px-5 pt-4 bg-white cart-page">
-        <h3 class="mb-4" >Products <a href="{{route('merchant.new-product-page')}}" class="btn btn-primary float-right"> New Product</a></h3>
+        <h3 class="mb-4" >Products <a href="{{route('merchant.new-product-page', [], false)}}" class="btn btn-primary float-right"> New Product</a></h3>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -54,7 +54,7 @@
                         <td>{{$product->created_at}}</td>
                         <td>
 
-                            <form id="logout-form" action="{{ route('merchant.delete-product') }}" method="POST">
+                            <form id="logout-form" action="{{ route('merchant.delete-product', [], false) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$product->id}}" />
                                 <button type="submit" class="btn"><i class="fa fa-trash"></i></button>

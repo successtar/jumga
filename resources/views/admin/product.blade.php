@@ -55,7 +55,7 @@
                         <td>{{$product->created_at}}</td>
                         <td>
 
-                            <form id="logout-form" action="{{ route('admin.delete-product') }}" method="POST">
+                            <form id="logout-form" action="{{ route('admin.delete-product', [], false) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$product->id}}" />
                                 <button type="submit" class="btn"><i class="fa fa-trash"></i></button>

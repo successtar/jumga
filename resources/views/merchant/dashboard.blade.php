@@ -10,7 +10,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Account Balance
                 </h5>
-                <a href="{{ route('merchant.dashboard') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('merchant.dashboard', [], false) }}" class="display-1 font-weight-bold">
                     ${{number_format($shop->account_balance, 2)}}
                 </a>
             </div>
@@ -18,7 +18,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Products
                 </h5>
-                <a href="{{ route('merchant.product') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('merchant.product', [], false) }}" class="display-1 font-weight-bold">
                     {{$data['product']}}
                 </a>
             </div>
@@ -26,7 +26,7 @@
                 <h5 class="font-weight-bold text-secondary">
                     Orders
                 </h5>
-                <a href="{{ route('merchant.order') }}" class="display-1 font-weight-bold">
+                <a href="{{ route('merchant.order', [], false) }}" class="display-1 font-weight-bold">
                     {{$data['order']}}
                 </a>
             </div>
