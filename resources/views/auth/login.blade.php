@@ -7,7 +7,7 @@
             <div class="card border-0 my-5">
 
                 <div class="card-body p-5">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="/login">
                         @csrf
 
                         <div class="form-group row">

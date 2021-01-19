@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="register-form">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="/register">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
