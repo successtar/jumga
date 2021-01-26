@@ -12,7 +12,3 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-/public/file/product_image/*
-!/public/file/product_image/tfuGdbSUj4dZ1c8FVBWomrXK5BrLjRNkbiVh6Rp0.jpg
-!/public/file/product_image/mKk53N6uodrrlmHe2vHJ2jA9HQorXfZkUNdBI9sH.jpg
-!/public/file/product_image/0uyLdrbaSkRXsPcnLO8IQjze6t03b8L9Qr8oQZmo.jpg
