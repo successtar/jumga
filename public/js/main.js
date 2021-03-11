@@ -263,7 +263,8 @@
             localStorage.setItem(shop, JSON.stringify(cart))
         }
 
-        $(this).prop("disabled", true)
+        $(this).prop("disabled", true);
+        toastr.success($(this).data("name") + " Added to cart");
     });
 
     if ($("#cart-items")[0]){

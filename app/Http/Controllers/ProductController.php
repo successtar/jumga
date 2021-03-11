@@ -42,7 +42,12 @@ class ProductController extends Controller
             'image' => 'required|mimes:jpg,png,jpeg|max:2048'
             ]);
 
-        $path = '/file/'.$req->file('image')->store('product_image', ['disk' => 'public']);
+        if (@$_ENV['UPLOAD_FILE'] === 'cloudinary'){
+            $path = $req->file('image')->storeOnCloudinary('jumga')->getSecurePath();
+        }
+        else{
+            $path = '/file/'.$req->file('image')->store('product_image', ['disk' => 'public']);
+        }
 
         $prod = new Product;
         $prod->id = Str::uuid();

@@ -72,6 +72,7 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
         <li>Platform: Heroku</li>
         <li>Deployment: Heroku Pipeline (Github)</li>
         <li>Database: PgSQL</li>
+        <li>File Storage: Cloudinary</li>
     </ul>
 </p>
 
