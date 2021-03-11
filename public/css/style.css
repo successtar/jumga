@@ -730,6 +730,7 @@ h2 {
 .product-item .product-image {
     position: relative;
     overflow: hidden;
+    margin: auto;
 }
 
 .product-item .product-image a {
@@ -1010,6 +1011,10 @@ h2 {
 
 .product-view .product-item {
     margin-bottom: 30px;
+}
+
+.product-item {
+    height: 35rem;
 }
 
 .product-view .pagination {
