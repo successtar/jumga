@@ -1,6 +1,8 @@
 (function ($) {
     "use strict";
 
+    toastr.options.positionClass = "toast-top-center";
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -281,7 +283,7 @@
             return acc + `<tr>
                             <td>
                                 <div class="img">
-                                    <a href="${val.image}" ><img src="${val.image}" alt="${val.name}"></a>
+                                    <a href="${val.image}" target="_blank"><img src="${val.image}" alt="${val.name}"></a>
                                     <p>${val.name}</p>
                                 </div>
                             </td>
@@ -327,6 +329,12 @@
         $("#item-grand-total").text("$" + (dispatch + total));
     }
 
+    // Placed Order Notification Pop up
+    if (typeof(shop) != 'undefined' && sessionStorage.getItem(shop)){
+        toastr.success(sessionStorage.getItem(shop));
+        sessionStorage.removeItem(shop);
+    }
+
     // Checkout Submission
     $("#place-order").on("submit", function(e){
         e.preventDefault();
@@ -341,9 +349,10 @@
                         // Callback on success
                         console.log("success", data);
                         localStorage.removeItem(shop);
+                        sessionStorage.setItem(shop, "Your Order was placed successful");
                         setTimeout(function(){
                             location.href = `/shop/${shop.substr(2)}`;
-                        }, 5000);
+                        }, 1000);
                     });
                     return;
                 }
@@ -370,9 +379,10 @@
                 initiateFlutterwaveCharge(res.data, function(data){
                     // Callback on success
                     console.log("success", data);
+                    sessionStorage.setItem(shop, "Hurray!!! Your Shop is Live..");
                     setTimeout(function(){
                         location.href = `/merchant/dashboard`;
-                    }, 5000);
+                    }, 1000);
                 });
                 return;
             }
