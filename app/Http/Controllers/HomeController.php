@@ -37,7 +37,7 @@ class HomeController extends Controller
                         ->get();
 
         $recents = Product::where('available', '>', 0)
-                            ->orderBy('created_at')
+                            ->orderBy('created_at', 'DESC')
                             ->limit(10)
                             ->get();
 
