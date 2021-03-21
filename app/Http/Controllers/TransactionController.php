@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderNew;
+use App\Mail\OrderRecieved;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class TransactionController extends Controller
@@ -81,6 +84,9 @@ class TransactionController extends Controller
                     $order->zip = $order_data['zip'];
                     $order->items = json_encode($order_data['items']);
                     $order->save();
+
+                    Mail::to($order->email)->send(new OrderRecieved($order));
+                    Mail::to($merchant->first()->email)->send(new OrderNew($order));
                 }
                 elseif ($tranx->type == 'SHOP_FEE'){
                     // Confirm User Shop Fee
