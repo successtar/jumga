@@ -22,7 +22,9 @@
                 @foreach ($transactions as $tranx)
                     <tr>
                         <td>
-                            {{$tranx->user->shop_name}}
+                            <a href="/shop/{{$tranx->user->slug}}" target="_blank">
+                                {{$tranx->user->shop_name}}
+                            </a>
                         </td>
                         <td>
                             {{$tranx->email}}
@@ -31,8 +33,8 @@
                         <td>{{$tranx->status}}</td>
                         <td>{{$tranx->type}}</td>
                         <td>{{$tranx->category}}</td>
-                        <td>{{$tranx->updated_at}}</td>
-                        <td>{{$tranx->created_at}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($tranx->updated_at))}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($tranx->created_at))}}</td>
                     </tr>
 
                 @endforeach

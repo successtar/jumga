@@ -22,7 +22,9 @@
                     <tr>
                         <td>
                             <p>
-                                {{$merchant->shop_name}}
+                                <a href="/shop/{{$merchant->slug}}" target="_blank">
+                                    {{$merchant->shop_name}}
+                                </a>
                             </p>
                             <p>
                                 {{$merchant->shop_description}}
@@ -43,8 +45,8 @@
                         <td>{{$merchant->status}}</td>
                         <td>${{number_format($merchant->account_balance, 2)}}</td>
                         <td>${{number_format($merchant->dispatch_balance, 2)}}</td>
-                        <td>{{$merchant->updated_at}}</td>
-                        <td>{{$merchant->created_at}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($merchant->updated_at))}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($merchant->created_at))}}</td>
                     </tr>
 
                 @endforeach

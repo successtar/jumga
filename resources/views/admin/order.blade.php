@@ -13,9 +13,9 @@
                     <th>Shop</th>
                     <th>Product</th>
                     <th>Status</th>
-                    <th>Amount</th>
-                    <th>Jumga Fee</th>
-                    <th>Dispatch</th>
+                    <th>Merchant</th>
+                    <th>Dispatcher</th>
+                    <th>Jumga</th>
                     <th>Total</th>
                     <th>Updated At</th>
                     <th>Created At</th>
@@ -41,7 +41,11 @@
                             </p>
 
                         </td>
-                        <td>{{$order->user->shop_name}}</td>
+                        <td>
+                            <a href="/shop/{{$order->user->slug}}" target="_blank">
+                                {{$order->user->shop_name}}
+                            </a>
+                        </td>
                         <td>
                             @foreach (json_decode($order->items) as $item)
                                 <p>
@@ -51,11 +55,11 @@
                         </td>
                         <td>{{$order->status}}</td>
                         <td>${{$order->amount}}</td>
-                        <td>${{$order->jumga_fee}}</td>
-                        <td>${{$order->dispatch}}</td>
+                        <td>${{$order->dispatch - ($order->dispatch * (env('J_DISP_COM')/100))}}</td>
+                        <td>${{$order->jumga_fee + ($order->dispatch * (env('J_DISP_COM')/100))}}</td>
                         <td>${{$order->total}}</td>
-                        <td>{{$order->updated_at}}</td>
-                        <td>{{$order->created_at}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($order->updated_at))}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($order->created_at))}}</td>
                     </tr>
 
                 @endforeach

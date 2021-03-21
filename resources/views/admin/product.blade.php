@@ -38,7 +38,7 @@
                         <td>
 
                             <div class="img">
-                                <a href="{{$product->image_path}}"><img src="{{$product->image_path}}" alt="Image"></a>
+                                <a href="{{$product->image_path}}" target="_blank"><img src="{{$product->image_path}}" alt="Image"></a>
                                 <div class="text-left">
                                     <p>{{$product->name}}</p>
                                     <br/>
@@ -46,13 +46,17 @@
                                 </div>
                             </div>
                         </td>
-                        <td>{{$product->user->shop_name}}</td>
+                        <td>
+                            <a href="/shop/{{$product->user->slug}}" target="_blank">
+                                {{$product->user->shop_name}}
+                            </a>
+                        </td>
                         <td>${{$product->price}}</td>
                         <td>{{$product->unit}}</td>
                         <td>{{$product->available}}</td>
                         <td>{{$product->sold}}</td>
-                        <td>{{$product->updated_at}}</td>
-                        <td>{{$product->created_at}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($product->updated_at))}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($product->created_at))}}</td>
                         <td>
 
                             <form id="logout-form" action="{{ route('admin.delete-product', [], false) }}" method="POST">

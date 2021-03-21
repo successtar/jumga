@@ -53,8 +53,8 @@
                         <td>${{$order->jumga_fee}}</td>
                         <td>${{$order->dispatch}}</td>
                         <td>${{$order->total}}</td>
-                        <td>{{$order->updated_at}}</td>
-                        <td>{{$order->created_at}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($order->updated_at))}}</td>
+                        <td>{{date("D\, M d\, Y\, h:i:s A", strtotime($order->created_at))}}</td>
                     </tr>
 
                 @endforeach
