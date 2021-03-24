@@ -6,7 +6,7 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
 <p>
     The application can be tested online here <a href="https://jumga-shop.herokuapp.com"> JUMGA </a>
     <br/>
-     Video Demo of how the application work is available here<a href="https://www.youtube.com/watch?v=awYaWRfxqAc&t=59s"> JUMGA DEMO VIDEO</a>
+     Video Demo of how the application work is available here<a href="https://www.youtube.com/watch?v=awYaWRfxqAc&t"> JUMGA DEMO VIDEO</a>
     <br/>
     Find test credentials below;
     <br/>
