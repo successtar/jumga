@@ -15,7 +15,7 @@ class MerchantController extends Controller
 
     public function merchant(){
 
-        $merchants = User::where('role', 'merchant')->paginate(8);
+        $merchants = User::where('role', 'merchant')->orderBy('created_at', 'DESC')->paginate(8);
 
         return view('admin.merchant', ['merchants' => $merchants]);
      }

@@ -105,7 +105,7 @@ class TransactionController extends Controller
 
      public function transaction(){
 
-        $transactions = Transaction::paginate(8);
+        $transactions = Transaction::orderBy('created_at', 'DESC')->paginate(8);
 
         return view('admin.transaction', ['transactions' => $transactions]);
      }
