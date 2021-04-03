@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/successtar/jumga/blob/master/public/img/logo.png?raw=true" width="400"></a></p>
+<p align="center"><a href="https://jumga-shop.herokuapp.com" target="_blank"><img src="https://github.com/successtar/jumga/blob/master/public/img/logo.png?raw=true" width="400"></a></p>
 
 <p>
 Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code challenge for an Ideal E-commerce platform where merchant set up their platform with a token and have their shop running within seconds.
