@@ -81,15 +81,6 @@ Jumga is a <a href="https://challenge.flutterwave.com" >Flutterwave</a> code cha
     </ul>
 </p>
 
-<p>
-    <h3> TODO </h3>
-    <ul>
-        <li>Merchant Updating perasonal details and bank accounts</li>
-        <li>Merchant Withdrawing to bank account</li>
-        <li>Improved User Experience</li>
-    </ul>
-</p>
-
 ## License
 
 MIT © [Hammed Olalekan Osanyinpeju](https://successtar.github.io)
